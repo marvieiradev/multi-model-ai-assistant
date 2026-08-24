@@ -35,7 +35,7 @@ const UploadButton = ({
 const RemoveButton = ({ onClick }) => (
   <button
     className="p-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-lg text-zinc-300"
-    type="buttom"
+    type="button"
     onClick={onClick}
   >
     <FaTimes className="w-3 h-3" />
@@ -158,7 +158,7 @@ const PromptForm = ({
               </div>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto">
-              <buttom
+              <button
                 type="button"
                 onClick={onClearAll}
                 disabled={disableClear}
@@ -169,7 +169,7 @@ const PromptForm = ({
                   <FaTrash className="w-4 h-4" />
                   <span className="hidden sm:inline">Clear</span>
                 </div>
-              </buttom>
+              </button>
 
               <button
                 type="submit"

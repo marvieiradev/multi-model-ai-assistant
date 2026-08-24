@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const CodeBlock = ({ inline, className, children, ...props }) => {
     const [copied, setCopied] = useState(false);
-    const match = /language-(\w+)/exec(className || '');
+    const match = /language-(\w+)/.exec(className || '');
     const codeText = Array.isArray(children) ? children.join('') : children;
     const handleCopy = () => {
         if (typeof navigator !== 'undefined') {

@@ -26,12 +26,12 @@ function App() {
   const [error, setError] = useState("");
 
   const apiHeaders = useMemo(() => {
-    const key = import.meta.env.OPENROUTER_API_KEY;
+    const key = import.meta.env.VITE_OPENROUTER_API_KEY;
     const referer = typeof window != "undefined" ? window.location.origin : "";
     return {
       ...fallbackHeaders,
       ...(referer ? { "HTTP-Referer": referer } : {}),
-      ...API_URL(key ? { Authorization: `Bearer ${key}` } : {}),
+      ...(key ? { Authorization: `Bearer ${key}` } : {}),
     };
   }, []);
 
@@ -123,7 +123,7 @@ function App() {
 
     if (!apiHeaders.Authorization) {
       setError(
-        "Adicione o OPENROUTER_API_KEY no seu arquivo .env para utilizar o modelo.",
+        "Adicione o VITE_OPENROUTER_API_KEY no seu arquivo .env para utilizar o modelo.",
       );
       return;
     }
@@ -199,7 +199,7 @@ function App() {
 
       if (!reply || (typeof reply === "string" && reply.trim() === "")) {
         const backendError =
-          data?.error?.message || "No response from model (empty content)";
+          data?.error?.message || "Nenhuma resposta do modelo (conteúdo vazio)";
         throw new Error(backendError);
       }
       setAnswer(reply);
@@ -207,7 +207,7 @@ function App() {
     } catch (err) {
       setError(
         err?.message ||
-          "Something went wrong. check your API key and try again.",
+          "Algo deu errado. Verifique sua chave de API e tente novamente.",
       );
     } finally {
       setLoading(false);
@@ -232,7 +232,7 @@ function App() {
   }, [answer]);
 
   const handleModelChange = (modelId) => {
-    const nextModel = MODEL.find((model) => model.id === modelId);
+    const nextModel = modelId.find((model) => model.id === modelId);
     if (nextModel) setSelectedModel(nextModel);
   };
 

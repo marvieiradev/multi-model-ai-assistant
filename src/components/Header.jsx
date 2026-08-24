@@ -6,7 +6,7 @@ const Header = ({ selectedModel }) => (
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 sm:gap-3">
                     <div className="w-7 h-7 bg-linear-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg sm:w-8 sm:h-8">
-                        <Fabolt className="w-3 h-3 text-white sm:w-4 sm:h-4" />
+                        <FaBolt className="w-3 h-3 text-white sm:w-4 sm:h-4" />
                     </div>
                     <div>
                         <h1 className="text-lg font-bold bg-linear-to-r from-white to-zinc-300 bg-clip-text text-tranparent sm:text-xl">AI Assistant</h1>
