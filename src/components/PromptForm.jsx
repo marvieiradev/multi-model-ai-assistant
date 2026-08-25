@@ -131,7 +131,7 @@ const PromptForm = ({
                 <FaBrain className="w-3 h-3 text-blue-400 shrink-0 sm:w-4 sm:h-4" />
                 <select
                   value={selectModel.id}
-                  onChange={(e) => onModelChange(e.text.value)}
+                  onChange={(e) => onModelChange(e.target.value)}
                   className="bg-transparent border-none focus:outline-none text-sm text-zinc-200 pr-2 cursor-pointer flex-1 min-w-0"
                 >
                   {models.map((model) => (
@@ -167,7 +167,7 @@ const PromptForm = ({
               >
                 <div className="flex items-center justify-center gap-2">
                   <FaTrash className="w-4 h-4" />
-                  <span className="hidden sm:inline">Clear</span>
+                  <span className="hidden sm:inline">Limpar</span>
                 </div>
               </button>
 
@@ -183,7 +183,7 @@ const PromptForm = ({
                   </div>
                 ) : (
                   <div className="flex items-center justify-center gap-2">
-                    <FaPaperPlane className="w-4 h-4 animate-spin" />
+                    <FaPaperPlane className="w-4 h-4" />
                     <span>Enviar</span>
                   </div>
                 )}

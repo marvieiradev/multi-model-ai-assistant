@@ -163,6 +163,7 @@ function App() {
         parts.length > 0 ? parts : [{ type: "text", text: prompt.trim() }];
 
       const response = await fetch(API_URL, {
+        method:'POST',
         headers: apiHeaders,
         body: JSON.stringify({
           model: selectdedModel.id,
@@ -232,7 +233,7 @@ function App() {
   }, [answer]);
 
   const handleModelChange = (modelId) => {
-    const nextModel = modelId.find((model) => model.id === modelId);
+    const nextModel = MODELS.find((model) => model.id === modelId);
     if (nextModel) setSelectedModel(nextModel);
   };
 
