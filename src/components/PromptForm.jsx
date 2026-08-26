@@ -63,7 +63,7 @@ const PromptForm = ({
   fileInputRef,
 }) => {
   const disableSubmit =
-    (!prompt.trim() && !(isVisionModel && imageData) && fileAttachment) ||
+    (!prompt.trim() && !(isVisionModel && imageData) && !fileAttachment) ||
     loading;
   const disableClear = !prompt.trim() && !imageData && !fileAttachment;
 
